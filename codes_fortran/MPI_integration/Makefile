@@ -3,9 +3,11 @@
 # enchainer avec make movie crée l'animation
 #
 all :
-	gfortran test.f90 -o test
-	./test
 
-program :
-	gfortran test.f90 -o test 
+seq :
+	gfortran integration_sequentielle.f90 -o integration_sequentielle 
+	./integration_sequentielle
 
+mpi :
+	mpif90 integration_mpi.f90 -o integration_mpi
+	mpirun -n 32 ./integration_mpi
