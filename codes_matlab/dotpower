@@ -1,0 +1,16 @@
+#!/bin/bash
+#Si l'argument est un fichier => remplacement de toutes les virgules par des points
+# Si l'argument est un repertoire => remplacement dans toutes les fichier .txt de l'arborescence entiere.
+
+if [ -d $1 ]
+then
+	find $1 -name "*.txt" -type f -exec sed -i "s/\,/\./g" {} \;
+else
+	if [ -f $1 ]
+	then
+		sed -i -e "s/\,/\./g" $1
+	fi
+
+fi
+
+
